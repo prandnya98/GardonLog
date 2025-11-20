@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Search Your Choice{% endblock %}</title>
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Search Results for "{{ query }}"</h2>
+
+  {% if data %}
+  <div class="product-container">
+    <div class="row">
+      {% for i in data %}
+      <div class="col-lg-4 mb-4 d-flex align-items-stretch">
+        <div class="card h-100 text-white shadow-lg" 
+             style="background: rgba(0, 0, 0, 0.7); border: none; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          <img class="card-img-top" src="{{ i.f_image.url }}" alt="{{ i.f_name }}" height="200px" style="border-bottom: 2px solid #444;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ i.f_name }}</h5>
+            <p class="card-text">{{ i.f_description }}</p>
+            <p class="card-text"><b>Category</b>: <i>{{ i.f_category }}</i></p>
+            <p class="card-text"><b>Scientific Name</b>: <i>{{ i.f_scientific_name }}</i></p>
+            <p class="card-text"><b>Colour</b>: {{ i.f_color }}</p>
+            <p class="card-text">Rs.{{ i.f_price }}</p>
+
+            <a href="#" class="btn btn-success w-100 mb-2">🧺 Add to Cart</a>
+            <a href="{% url 'update' i.id %}" class="btn btn-warning w-100 mb-2">📝 Edit</a>
+            <a href="{% url 'delete' i.id %}" 
+               class="btn btn-danger w-100" 
+               onclick="return confirm('Are you sure you want to delete this Nature Bundle 😢?')">
+               🗑️ Delete
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+    <p>No results found for "{{ query }}" 😢</p>
+  {% endif %}
+</div>
+{% endblock %}

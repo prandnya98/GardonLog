@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Support Page</h2>
+    <p>Leave your comment below 👇</p>
+
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <textarea name="message" rows="4" class="form-control" placeholder="Write your comment..." required></textarea>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
+
+    <h4>All Comments</h4>
+    <ul class="list-group">
+        {% for comment in comments %}
+            <li class="list-group-item">
+                <strong>{{ comment.user.username }}</strong> 
+                <small class="text-muted">{{ comment.created_at|date:"d M Y H:i" }}</small>
+                <p>{{ comment.message }}</p>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No comments yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

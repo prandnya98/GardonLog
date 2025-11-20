@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Home{% endblock %}</title>
+
+{% block content%}
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.959), rgba(0, 0, 0, 0.5)), 
+      url('https://www.sunset.com/wp-content/uploads/garden-tools-prep-pc-cavan-images-getty-1200x600.jpg') 
+      no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-section {
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    padding: 4rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    /* Animation */
+    opacity: 0;
+    transform: translateY(100px);
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-content h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    color: #28a745;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+
+  .hero-content .btn-primary {
+    background-color: #28a745;
+    border: none;
+    padding: 0.75rem 2rem;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .hero-content .btn-primary:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 767.98px) {
+    .hero-section {
+      padding: 3rem 1.5rem;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+    .hero-content p {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<div class="hero-section">
+  <div class="hero-content">
+    <h1>GardonLog 🌱</h1>
+    <p>Celebrate life’s moments with meaningful gifts — flowers and plants that bloom just like the emotions behind them .</p>
+    <a class="btn btn-primary" href="{% url 'login' %}">Start Your Journey</a>
+  </div>
+</div>
+{% endblock %}

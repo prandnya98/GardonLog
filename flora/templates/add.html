@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Add Page{% endblock %}</title>
+
+  {% block content%}
+
+<!-- <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/premium-photo/garden-background-images-background-copy-space_1179130-702882.jpg?w=360') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} -->
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/premium-photo/garden-background-images-background-copy-space_1179130-702882.jpg?w=360') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+  </style>
+
+<body>
+
+   <div class="container  mb-5 d-flex ">
+  <div class="card p-4" style="background-color: rgba(0,0,0,0.6); color: white; width: 500px; border-radius: 15px;">
+    <h2 class="text-center mb-4">Add New Flower</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="f_name" class="form-label">Flower Name</label>
+        <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Enter flower name">
+      </div>
+
+      <div class="mb-3">
+        <label for="f_description" class="form-label">Description</label>
+        <textarea class="form-control" id="f_description" name="f_description" rows="3" placeholder="Enter description"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="f_price" class="form-label">Price</label>
+        <input type="number" step="0.01" class="form-control" id="f_price" name="f_price" placeholder="Enter price">
+      </div>
+
+      <div class="mb-3">
+        <label for="f_category" class="form-label">Category</label>
+        <select class="form-select" id="f_category" name="f_category">
+          <option selected disabled>Choose...</option>
+          <option value="Festive">Festive</option>
+          <option value="Medicinal">Medicinal</option>
+          <option value="Ornamental">Ornamental</option>
+          <option value="Decorative">Decorative</option>
+          <option value="Seasonal">Seasonal</option>
+          <option value="Gratitude">Gratitude</option>
+          <option value="Expressing">Expressing</option>
+          <option value="Wild">Wild</option>
+          <option value="Anniversaries">Anniversaries</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Fairwell">Fairwell</option>
+          <option value="Garden Flowers">Garden Flowers</option>
+          <option value="Spring Flowers">Spring Flowers</option>
+          <option value="Fragrant Flowers">Fragrant Flowers</option>
+          <option value="Bouquet Flowers">Bouquet Flowers</option>
+          
+
+      </div>
+
+      <div class="mb-3">
+        <label for="f_scientific_name" class="form-label">Scientific Name</label>
+        <input type="text" class="form-control" id="f_scientific_name" name="f_scientific_name" placeholder="Enter scientific name">
+      </div>
+
+      <div class="mb-3">
+        <label for="f_color" class="form-label">Color</label>
+        <input type="text" class="form-control" id="f_color" name="f_color" placeholder="Enter color">
+      </div>
+
+      <div class="mb-3">
+        <label for="f_image" class="form-label">Upload Image</label>
+        <input type="file" class="form-control" id="f_image" name="f_image">
+      </div>
+
+      <button type="submit" class="btn btn-success w-100">Add Flower</button>
+
+    </form>
+  </div>
+</div>
+
+  
+  {% endblock%}

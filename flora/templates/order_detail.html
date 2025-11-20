@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Order #{{ order.id }}</h2>
+    <p><strong>Date:</strong> {{ order.created_at|date:"d M Y H:i" }}</p>
+    <p><strong>Status:</strong> {% if order.is_completed %} ✅ Completed {% else %} ⏳ Pending {% endif %}</p>
+    <p><strong>Total:</strong> ₹ {{ order.total_price }}</p>
+
+    <h4>Items</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order.items.all %}
+                <tr>
+                    <td>{{ item.product.f_name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>₹ {{ item.price }}</td>
+                    <td>{{ item.subtotal }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'my_orders' %}" class="btn btn-secondary">Back to My Orders</a>
+</div>
+{% endblock %}

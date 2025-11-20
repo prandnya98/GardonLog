@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Order Confirmed ✅</h2>
+<p>Thank you, {{ order.user.username }}! Your order has been successfully placed.</p>
+
+<p><strong>Order ID:</strong> {{ order.id }}</p>
+<p><strong>Order Date:</strong> {{ order.created_at|date:"d M Y H:i" }}</p>
+
+<h3>Order Details</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price (Rs.)</th>
+            <th>Total (Rs.)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in order.items.all %}
+        <tr>
+            <td>{{ item.product.f_name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.total_price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Total Paid: Rs. {{ order.total }}</h3>
+
+<a href="/" class="btn btn-primary">⬅ Back to Shop</a>
+{% endblock %}
