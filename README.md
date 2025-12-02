@@ -61,8 +61,7 @@ The platform includes product listings, category filtering, detailed view pages,
   - Categories  
   - Products  
   - Cart Items  
-  - Orders  
-- Mobile-responsive UI  
+  - Orders   
 - Well-structured for production use  
 - Professional enough for resume + GitHub
 
