@@ -9,7 +9,7 @@ The platform includes product listings, category filtering, detailed view pages,
 
 ### ✔ User-Friendly Product Browsing
 - View plant & flower items with images, descriptions, and pricing  
-- Categorized browsing (Indoor Plants, Gifting Flowers, Air-Purifying Plants, etc.)
+- Categorized browsing 
 
 ### ✔ Product Filtering & Search
 - Filter items by category  
